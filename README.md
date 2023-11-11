@@ -15,5 +15,5 @@ ContentProviders
 ###4.Опишите жизненный цикл Activity
 <h3 align="center"><strong>Welcom Fragment</strong></h3>
 <p align="center">
-  <img src="https://www.sysbunny.com/blog/wp-content/uploads/2021/04/Android-Activity-Lifecycle-768x917.jpg alt="Preview">
+  <img src="https://www.sysbunny.com/blog/wp-content/uploads/2021/04/Android-Activity-Lifecycle-768x917.jpg" alt="Preview"">
 </p>
