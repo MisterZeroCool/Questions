@@ -14,6 +14,7 @@
 
 ### 4.Опишите жизненный цикл Activity
 Жизненный цикл представляет собой последовательность методов, которые вызываются в определенной последовательности во время создания/уничтожения/приостановки Activity.
+
 <h3 align="center"><strong>Activity Lifecucler</strong></h3>
 <p align="center">
   <img src="https://www.sysbunny.com/blog/wp-content/uploads/2021/04/Android-Activity-Lifecycle-768x917.jpg" alt="Preview"">
