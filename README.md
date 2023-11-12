@@ -5,10 +5,10 @@
   - [Services](#services)
   - [Broadcasts](#broadcasts)
   - [Content provider](#content-provider)
-  - [Resources](#resources)
-  - [ViewGroup](#view-group)
-  - [Custom Views](#custom-views)
-  - [Библиотеки загрузки приложений](#библиотеки-загрузки-приложений)
+- [Resources](#resources)
+- [ViewGroup](#view-group)
+- [Custom Views](#custom-views)
+- [Библиотеки загрузки приложений](#библиотеки-загрузки-приложений)
   
 # Android<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnluOG4xdGlpeWxwYnFhM3Bjc2Z3dzN5eDhhaThza2N0Ym9wOGUxOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zECASgodRMZ5QAbRao/giphy.gif" width="30px">
 
