@@ -866,7 +866,7 @@ dependencies {
 import coil.load
 
 val imageView: ImageView = findViewById(R.id.imageView)
-imageView.load("https://developer.alexanderklimov.ru/android/images/android_cat.jpg")
+imageView.load("https://developer.alex.ru/android/images/android_cat.jpg")
 ```
 По сути, библиотека делает функцию-расширение для ImageView, добавляя в компонент новые методы.
 
@@ -881,7 +881,7 @@ imageView.load(File("/path/to/city.jpg"))
 Более сложный вариант с применением лямбды - используем заглушку и трансформацию в виде круга
 
 ```kotlin
-imageView.load("https://developer.alexanderklimov.ru/android/images/android_cat.jpg"){
+imageView.load("https://developer.alex.ru/android/images/android_cat.jpg"){
     crossfade(true)
     crossfade(2000)
     placeholder(R.drawable.ic_action_cat)
@@ -904,7 +904,7 @@ val button: Button = findViewById(R.id.button)
 button.setOnClickListener {
     val imageLoader = ImageLoader(this)
     val request: ImageRequest = ImageRequest.Builder(this)
-        .data("https://developer.alexanderklimov.ru/android/images/android_cat.jpg")
+        .data("https://developer.alex.ru/android/images/android_cat.jpg")
         .target { drawable ->
             button.setCompoundDrawablesRelativeWithIntrinsicBounds(
                 drawable, null, null,
@@ -1063,7 +1063,7 @@ Picasso.with(context).load(new File(...)).into(imageView2);
 Сначала создаётся отдельный класс с интерфейсом Transformation, который требует реализовать два метода transform() и key().
 
 ```java
-package ru.alexanderklimov.testapplication;
+package ru.alex.testapplication;
 
 import android.graphics.Bitmap;
 
