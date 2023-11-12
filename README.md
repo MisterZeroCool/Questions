@@ -1,10 +1,10 @@
 # Questions
 ### 1.Какие компоненты андроид системы вы знаете?
 Основные компоненты андроид системы которые должны быть зарегестрированы в файле AndroidManifest:
-+`Activity`
-+`Servicy`
-+`BroadcastReceivers`
-+`ContentProviders`
++ `Activity`
++ `Servicy`
++ `BroadcastReceivers`
++ `ContentProviders`
 
 
 ### 2.Какой из этих компонентов не обязательно регистрировать в файле AndroidManifest и почему?
