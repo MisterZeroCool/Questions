@@ -67,7 +67,6 @@
 
 ### 8.Какие методы вызываются при переходе между Activity?
 + A: onCreate, onStart, onResume A: (переход) onPause B: onCreate, onStart, onResume A: onStop B: (обратный переход) onPause A: onRestart, onStart, onResume B: onStop, onDestroy 
-<h3 align="center"><strong></strong></h3>
 <p align="center">
   <img src="https://camo.githubusercontent.com/f64a1972375185fe8bf03a19b60f67b1593419986f5c6f2ad6f92b1b015031bc/68747470733a2f2f6c68352e676f6f676c6575736572636f6e74656e742e636f6d2f2d4d4d58336f3470647364302f546f79625574712d4546492f41414141414141414162772f7269354d51314a673573492f733830302f32303131313030355f4c303032345f4c5f54776f416374536368656d612e6a7067" alt="Preview"">
 </p>
