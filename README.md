@@ -12,17 +12,17 @@
   
 # Android
 
-### Какие компоненты андроид системы вы знаете?<img src="https://www.gifki.org/data/media/1476/znak-voprosa-animatsionnaya-kartinka-0015.gif" alt="Preview"/>
+### 1.Какие компоненты андроид системы вы знаете?<img src="https://www.gifki.org/data/media/1476/znak-voprosa-animatsionnaya-kartinka-0015.gif" alt="Preview"/>
 Основные компоненты андроид системы которые должны быть зарегестрированы в файле AndroidManifest:
 + `Activity`
 + `Servicy`
 + `BroadcastReceivers`
 + `ContentProviders`
 
-### Какой из этих компонентов не обязательно регистрировать в файле AndroidManifest и почему?
+### 2.Какой из этих компонентов не обязательно регистрировать в файле AndroidManifest и почему?
 В системе Android необязательным компонентом для регистрации в манифесте является Service. В отличии от Activity и BroadcastReceivers, Servicy могут быть запущены и работать в фоновом режиме без непосредственного взаимодействия с пользователем. 
 
-### Расскажите про AndroidManifest и для чего он нужен?
+### 3.Расскажите про AndroidManifest и для чего он нужен?
 Это Xml инструкция которая выполняется до запуска приложения и описывает его основную инфрмацию для системы. Каждое приложение имеет свой файл AndroidManifest.xml который находится в папке проекта manifest. В нем определяется название приложения, api андроида необходимое для работы приложения, методанные о версии, иконке, теме и т.д. Перечисляются общедоступные библиртеки которые связаны с приложением, например Google карты. Объявляются основные компоненты приложения. Например в елементе application мы можем объявлять MainActivity которая будет точкой доступа в приложении и откроется при его запуске, для этого необходимо указать в 
 ```java
 <activity android:name=".presentation.MainActivity">
@@ -34,7 +34,7 @@
 ```
 В манифесте можно указать разрешения, которые должны запросить други приложени для взаимодействия с нашим приложением. И список permission которые будут запрошены у системы для функционирования приложения, например доступ к интернету, камере, локации, контактам и т.д.
 
-# Android Components<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnluOG4xdGlpeWxwYnFhM3Bjc2Z3dzN5eDhhaThza2N0Ym9wOGUxOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zECASgodRMZ5QAbRao/giphy.gif" width="30px">
+# Android Components
 
 ## Activity
 ### 1.Что такое Activity?
