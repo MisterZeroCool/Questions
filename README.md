@@ -6,7 +6,7 @@
   - [Broadcasts](#broadcasts)
   - [Content provider](#content-provider)
 - [Resources](#resources)
-- [ViewGroup](#view-group)
+- [ViewGroup](#viewgroup)
 - [Custom Views](#custom-views)
 - [Библиотеки загрузки приложений](#библиотеки-загрузки-приложений)
   
