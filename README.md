@@ -841,7 +841,7 @@ class CustomView @JvmOverloads constructor(
 ## ⭐Библиотеки загрузки изображений
 ![иллюстрация процесса](https://coil-kt.github.io/coil/logo.svg) 
 
-### 
+### COIL
 Библиотека Coil получила своё название от сокращения "Coroutine Image Loader".
 
 Библиотека написана на Kotlin и использует корутины. При этом она быстрее известной Glide. Пользоваться удобно и просто. 
@@ -923,7 +923,7 @@ button.setOnClickListener {
 Библиотека также поддерживает форматы GIF и SVG, в этом случае нужно добавить дополнительные зависимости. 
 
 
-### Библиотека Glide
+### Glide
 
 ![иллюстрация процесса](https://www.devapp.it/wordpress/wp-content/uploads/2016/02/glide-logo.jpg) 
 
@@ -1019,7 +1019,7 @@ Glide
         .into(mImageView);
 ```
 
-### Библиотека Picasso
+### Picasso
 ![иллюстрация процесса](https://koenig-media.raywenderlich.com/uploads/2019/06/Picasso-feature.png) 
 
 Предназначенная для асинхронной подгрузки изображений из сети, ресурсов или файловой системы, их кэширования и отображения.
