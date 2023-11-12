@@ -9,6 +9,10 @@
 - [ViewGroup](#view-group)
 - [Custom Views](#custom-views)
 - [Библиотеки загрузки приложений](#библиотеки-загрузки-приложений)
+  - [Coil](#coil)
+  - [Glide](#glide)
+  - [Picasso](#picasso)
+
   
 # Android<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnluOG4xdGlpeWxwYnFhM3Bjc2Z3dzN5eDhhaThza2N0Ym9wOGUxOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zECASgodRMZ5QAbRao/giphy.gif" width="30px">
 
@@ -833,44 +837,293 @@ class CustomView @JvmOverloads constructor(
 
 Здесь мы получаем массив атрибутов `typedArray` из контекста с помощью метода c`ontext.obtainStyledAttributes()`, передавая ему параметры attrs и стиль `R.styleable.CustomView`. Затем мы извлекаем значение атрибута `customTextColor` из массива `typedArray` с помощью метода `typedArray.getColor()`. Вторым параметром мы передаем значение по умолчанию, которое будет использоваться, если атрибут не был задан. После извлечения значения мы обязательно вызываем метод `typedArray.recycle()`, чтобы освободить ресурсы.
 
-## ⭐Библиотеки загрузки приложений
+## ⭐Библиотеки загрузки изображений
+![иллюстрация процесса](https://coil-kt.github.io/coil/logo.svg) 
+
+### 
+Библиотека Coil получила своё название от сокращения "Coroutine Image Loader".
+
+Библиотека написана на Kotlin и использует корутины. При этом она быстрее известной Glide. Пользоваться удобно и просто. 
+
+#### 1.Как с ней работать?
+
+В Android Studio прописываем зависимость в Gradle (проверяйте номер свежей версии).
+
+```kotlin
+dependencies {
+    implementation 'io.coil-kt:coil:1.4.0' // старая ветка, больше не поддерживается
+    implementation 'io.coil-kt:coil:2.2.2' // новая ветка разработки
+}
+```
+
+#### 2.Загружаем в ImageView
+
+Загружаем картинку из сети:
+
+```kotlin
+
+import coil.load
+
+val imageView: ImageView = findViewById(R.id.imageView)
+imageView.load("https://developer.alexanderklimov.ru/android/images/android_cat.jpg")
+```
+По сути, библиотека делает функцию-расширение для ImageView, добавляя в компонент новые методы.
+
+Можно загружать из ресурсов, файловой системы и т.д.
+```kotlin
+// Resource
+imageView.load(R.drawable.dog)
+
+// File
+imageView.load(File("/path/to/city.jpg"))
+```
+Более сложный вариант с применением лямбды - используем заглушку и трансформацию в виде круга
+
+```kotlin
+imageView.load("https://developer.alexanderklimov.ru/android/images/android_cat.jpg"){
+    crossfade(true)
+    crossfade(2000)
+    placeholder(R.drawable.ic_action_cat)
+    transformations(CircleCropTransformation())
+```
+Доступны также `GrayscaleTransformation (1.x)`, `BlurTransformation (1.x)`, `RoundedCornersTransformation`.
+
+Например, картинка с закруглёнными углами (указываем величину радиуса):
+
+```kotlin
+transformations(RoundedCornersTransformation(40f))
+```
+
+### Получаем Drawable
+
+Не всегда нам нужно сразу загружать картинку в ImageView, иногда нам нужно получить само изображение, которое потом можно где-то применить. В следующем примере мы получим картинку как Drawable и применим к кнопке как значок слева от текста.
+
+```kotlin
+val button: Button = findViewById(R.id.button)
+button.setOnClickListener {
+    val imageLoader = ImageLoader(this)
+    val request: ImageRequest = ImageRequest.Builder(this)
+        .data("https://developer.alexanderklimov.ru/android/images/android_cat.jpg")
+        .target { drawable ->
+            button.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                drawable, null, null,
+                null
+            )
+        }
+        .build()
+
+    imageLoader.enqueue(request)
+}
+```
+Кроме асинхронного метода `enqueue()` есть ещё `execute()`, который можно использовать в корутинах.
+
+### Поддержка других форматов
+
+Библиотека также поддерживает форматы GIF и SVG, в этом случае нужно добавить дополнительные зависимости. 
 
 
+### Библиотека Glide
+
+![иллюстрация процесса](https://www.devapp.it/wordpress/wp-content/uploads/2016/02/glide-logo.jpg) 
+
+Библиотека Glide является ближайшим конкурентом другой популярной библиотеке Picasso и также предназначена для асинхронной подгрузки изображений из сети, ресурсов или файловой системы, их кэширования и отображения. Синтаксис и принцип работы очень схож. Во многом выбор определяется вкусом разработчика.
+
+Но библиотека имеет дополнительную функциональность в виде поддержки анимированных GIF-файлов и видео.
+
+#### 1.Как с ней работать?
+
+В Android Studio прописываем зависимость в Gradle (проверяйте номер свежей версии).
+
+```kotlin
+implementation 'com.github.bumptech.glide:glide:4.14.2'
+```
+#### Базовый пример
+
+Для простого примера достаточно указать три метода объекта Glide:
+
+`with(Context context)` — передаём `Context`
+`load(String imageUrl)` — указываем адрес картинки из интернета, ресурса, файла
+`into(ImageView targetImageView)` — компонент `ImageView`, в котором должна отобразиться картинка
+
+Разместим на экране активности кнопку и `ImageView`. Напишем пример загрузки изображения с заданного адреса.
+
+```kotlin
+package ru.alex.glide;
+
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
+
+public class MainActivity extends AppCompatActivity {
+
+    private ImageView mImageView;
+    private String mImageAddress =
+            "http://developer.alexanderklimov.ru/android/images/android_cat.jpg";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        mImageView = findViewById(R.id.imageView);
+    }
+
+    public void onClick(View view) {
+        // Загружаем картинку
+        Glide
+                .with(this)
+                .load(mImageAddress)
+                .into(mImageView);
+    }
+}
+```
+Загружать можно не только из интернета, но и из ресурсов. Это может быть полезным при интенсивном использовании изображений больших размеров с различными эффектами.
+
+```kotlin
+public void onClick(View view) {
+
+    int resourceId = R.mipmap.ic_launcher;
+
+    Glide
+            .with(this)
+            .load(resourceId)
+            .into(mImageView);
+}
+```
+
+Загружаем из файла. В примере опущена проверка на существование файла. Но даже без проверки приложение не закроется с ошибкой, а просто ничего не загрузит.
+
+```kotlin
+File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "cat.png");
+
+Glide
+      .with(this)
+      .load(file)
+      .into(mImageView);
+```
+
+Последний вариант связан с Uri. Это может быть адрес в интернете, а также адрес на ресурс.
+
+```kotlin
+int resourceId = R.mipmap.ic_launcher_round;
+
+Uri uri = Uri.parse("android.resource://"  + this.getPackageName() + "/" + resourceId);
+
+Glide
+        .with(this)
+        .load(uri)
+        .into(mImageView);
+```
+
+### Библиотека Picasso
+![иллюстрация процесса](https://koenig-media.raywenderlich.com/uploads/2019/06/Picasso-feature.png) 
+
+Предназначенная для асинхронной подгрузки изображений из сети, ресурсов или файловой системы, их кэширования и отображения.
+
+#### 1.Как с ней работать?
+В Android Studio прописываем зависимость в Gradle (проверяйте номер свежей версии).
+
+```kotlin
+dependencies {
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+}
+```
+
+Вот как просто загрузить картинку из сети:
+
+```kotlin
+Picasso.with(context)
+    .load(url)
+    .placeholder(R.drawable.user_placeholder)
+    .error(R.drawable.user_placeholder_error)
+    .into(imageView);
+```
+
+Вы указываете адрес картинки (url), заглушку (placeholder), заглушку для ошибки после трёх неудачных попыток загрузки (error) и в методе into() указываете компонент ImageView, в который загружаете изображение.
+
+При загрузке картинка кэшируется и при повторном запросе на скачивание библиотека может достать картинку из кэша, а не скачивать из интернета, что ускоряет работу приложения. Если кэш будет переполнен или удалён пользователем, то картина снова скачается из сети. Очень удобно.
+
+Если вы храните большие картинки в ресурсах или на внешнем накопителе, то рекомендуется использовать отдельный процесс для загрузки. Библиотека уже настроена на работу в асинхронном режиме, поэтому вы можете использовать её и в этих случаях.
+
+```kotlin
+// из ресурсов
+Picasso.with(context).load(R.drawable.landing_screen).into(imageView1);
+// из внешнего накопителя
+Picasso.with(context).load(new File(...)).into(imageView2);
+```
+Не забывайте про метод библиотеки fit(), который уменьшает размер картинки перед размещением в ImageView. Это полезно для экономии ресурсов, если вам в реальности нужна маленькая картинка, а не оригинал.
+
+### Трансформация
+У библиотеки есть специальный метод transform() для манипуляций с изображениями. Вам нужно создать собственную реализацию и передать её в метод.
+
+Сначала создаётся отдельный класс с интерфейсом Transformation, который требует реализовать два метода transform() и key().
+
+```java
+package ru.alexanderklimov.testapplication;
+
+import android.graphics.Bitmap;
+
+import com.squareup.picasso.Transformation;
+
+public class CropSquareTransformation implements Transformation {
+    @Override public Bitmap transform(Bitmap source) {
+        int size = Math.min(source.getWidth(), source.getHeight());
+        int x = (source.getWidth() - size) / 2;
+        int y = (source.getHeight() - size) / 2;
+        Bitmap result = Bitmap.createBitmap(source, x, y, size, size);
+        if (result != source) {
+            source.recycle();
+        }
+        return result;
+    }
+
+    @Override public String key() { return "square()"; }
+}
+
+```
+
+Для наглядности разместим два компонента ImageView и посмотрим на результат после нажатия на кнопку.
+
+```java
+public class MainActivity extends ActionBarActivity {
+
+    private ImageView mDrawableTransformedImage;
+    private ImageView mDrawableTransformedImage2;
+
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_main);
+
+        mDrawableTransformedImage = (ImageView) findViewById(R.id.imageView);
+        mDrawableTransformedImage2 = (ImageView) findViewById(R.id.imageView2);
+    }
+    
+    public void onClick(View v) {
+
+        Picasso.with(this)
+                .load(R.drawable.cat_bottom)
+                .transform(new CropSquareTransformation())
+                .into(mDrawableTransformedImage);
+
+        Picasso.with(this)
+                .load(R.drawable.cat_bottom)
+                //.transform(new CropSquareTransformation())
+                .into(mDrawableTransformedImage2);
+    }
+} 
+```
+![иллюстрация процесса](https://developer.alexanderklimov.ru/android/library/picasso1.png) 
 
 
+Другой пример трансформации - перекраска изображения.
+![иллюстрация процесса](https://developer.alexanderklimov.ru/android/library/picasso2.png)
 
+#### Круглый аватар
 
+Ещё один пример, позволяющий создавать круглые картинки, которые можно использовать в качестве аватаров.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![иллюстрация процесса](https://developer.alexanderklimov.ru/android/library/picasso4.png)
