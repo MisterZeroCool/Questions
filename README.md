@@ -47,11 +47,11 @@
 + Получает информацию об активити методом `PackageManager.resolveIntent()`. 
 + Сохраняет информацию об активити в интент, чтобы не выполнять резолюшн в будущем. 
 + Проверяет, имеет ли приложение-лаунчер достаточно прав, чтобы стартовать активити. 
-+ Проверяет, существует ли `ProcessRecord` для процесса приложения, которое нужно запустить. 
-
-# Android Components<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnluOG4xdGlpeWxwYnFhM3Bjc2Z3dzN5eDhhaThza2N0Ym9wOGUxOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zECASgodRMZ5QAbRao/giphy.gif" width="30px">
++ Проверяет, существует ли `ProcessRecord` для процесса приложения, которое нужно запустить.
 
 #-[Содержание](#содержание)
+
+# Android Components<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnluOG4xdGlpeWxwYnFhM3Bjc2Z3dzN5eDhhaThza2N0Ym9wOGUxOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zECASgodRMZ5QAbRao/giphy.gif" width="30px">
 
 ## ⭐Activity
 ### 1.Что такое Activity?
