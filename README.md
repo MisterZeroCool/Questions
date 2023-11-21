@@ -160,12 +160,12 @@ String, а для значений можно использовать любы�
 
 ### 9.Какие методы вызываются при переходе между активити?
 <br>A: `onCreate()`, `onStart()`, `onResume`
-<br>A: *(переход)* onPause
+<br>A: *(переход)* `onPause()`
 <br>B: `onCreate()`, `onStart()`, `onResume`
-<br>A: onStop
-<br>B: *(обратный переход)* onPause
+<br>A: `onStop()`
+<br>B: *(обратный переход)* `onPause()`
 <br>A: `onRestart`, `onStart()`, `onResume`
-<br>B: onStop, onDestroy
+<br>B: `onStop()`, `onDestroy()`
 
    ![иллюстрация процесса](https://lh5.googleusercontent.com/-MMX3o4pdsd0/ToybUtq-EFI/AAAAAAAAAbw/ri5MQ1Jg5sI/s800/20111005_L0024_L_TwoActSchema.jpg) 
 
