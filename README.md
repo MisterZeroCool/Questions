@@ -159,13 +159,14 @@ String, а для значений можно использовать любы�
 Нужно вызвать метод `startActivityForResult()`.
 
 ### 9.Какие методы вызываются при переходе между активити?
-A: `onCreate()`, `onStart()`, `onResume`
-A: *(переход)* onPause
-B: `onCreate()`, `onStart()`, `onResume`
-A: onStop
-B: *(обратный переход)* onPause
-A: `onRestart`, `onStart()`, `onResume`
-B: onStop, onDestroy
+<br>A: `onCreate()`, `onStart()`, `onResume`
+<br>A: *(переход)* onPause
+<br>B: `onCreate()`, `onStart()`, `onResume`
+<br>A: onStop
+<br>B: *(обратный переход)* onPause
+<br>A: `onRestart`, `onStart()`, `onResume`
+<br>B: onStop, onDestroy
+
    ![иллюстрация процесса](https://lh5.googleusercontent.com/-MMX3o4pdsd0/ToybUtq-EFI/AAAAAAAAAbw/ri5MQ1Jg5sI/s800/20111005_L0024_L_TwoActSchema.jpg) 
 
 ### 10.Когда `onDestroy()` вызывается без `onPause()` и `onStop()`?
