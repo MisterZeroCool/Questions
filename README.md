@@ -51,6 +51,8 @@
 
 # Android Components<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnluOG4xdGlpeWxwYnFhM3Bjc2Z3dzN5eDhhaThza2N0Ym9wOGUxOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zECASgodRMZ5QAbRao/giphy.gif" width="30px">
 
+#-[Содержание](#содержание)
+
 ## ⭐Activity
 ### 1.Что такое Activity?
 Это компонент приложения, который представляет собой экран, с которым пользователи могут взаимодействовать для выполнения каких-либо действий, например набрать номер телефона, сделать фото, отправить письмо или просмотреть карту. Каждой `Activity` присваивается окно для прорисовки соответствующего пользовательского интерфейса.
