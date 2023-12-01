@@ -104,7 +104,7 @@ String, а для значений можно использовать любы�
 
 <h3 align="center"><strong>Activity Lifecycles</strong></h3>
 <p align="center">
-  <img src="https://www.sysbunny.com/blog/wp-content/uploads/2021/04/Android-Activity-Lifecycle-768x917.jpg" alt="Preview"">
+  <img src="https://www.sysbunny.com/blog/wp-content/uploads/2021/04/Android-Activity-Lifecycle-768x917.jpg" alt="Preview">
 </p>
 
 + `onCreate()`
