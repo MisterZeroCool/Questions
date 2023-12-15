@@ -7,7 +7,7 @@
    - [Q3a](#q3a) Расскажите про AndroidManifest и для чего он нужен?
    - [Q4a](#q4a) Что происходит между тем как ты нажал на иконку приложения и его запуском?
      
-   - [Activity](#activity)
+     ## Activity
    - [Q5a](#q5a) Что такое Activity?
    - [Q6a](#q6a) Как стартует первая Activity?
    - [Q7a](#q7a) Как можно переключаться между Activity? Первый способ с помощью Intent-ов.
@@ -26,7 +26,7 @@
    - [Q20a](#q20a) Когда Activity удаляется из памяти?
    - [Q21a](#q21a) Чем отличается ActivityContext от ApplicationContext?
  
-   - [Services](#services)
+     ## Services
    - [Q22a](#q22a) Что такое Service ?
    - [Q23a](#q23a) Какие вы знаете виды сервисов?
    - [Q24a](#q24a) Жизненный цикл Service?
@@ -35,28 +35,28 @@
    - [Q27a](#q27a) Как остановить Service?
    - [Q28a](#q28a) Перезапуск сервиса
 
-   - [Broadcasts](#broadcasts)
+     ## Broadcasts
    - [Q29a](#q29a) Что такое BroadcastsReceiver?
    - [Q30a](#q30a) Можно ли отправить свое Broadcasts сообщение?
    - [Q31a](#q31a) Какие виды BroadcastsReceiver вы знаете?
 
-   - [Content provider](#content-provider)
+     ## Content provider
    - [Q32a](#q32a) Зачем нужен Content Provider?
 
-   - [Resources](#resources)
+     ## Resources
    - [Q33a](#q33a) Для чего нужны resources?
    - [Q34a](#q34a) Как ресурсы хранятся приложение?
    - [Q35a](#q35a) Зачем такое разделение сделано на группы, если можно использовать один ресурс?
      Дополнительный вопрос
    - Как обратиться к ресурсу?
 
-   - [ViewGroup](#viewgroup)
+     ## ViewGroup
    - [Q36a](#q36a) Что такое `View`?
    - [Q37a](#q37a) На каком потоке стартует View
    - [Q38a](#q38a) Что такое `ViewGroup`?
    - [Q39a](#q39a) Виды разметки в Android?
 
-   - [Custom Views](#custom-views)
+     ## Custom Views
    - [Q40a](#q40a) Когда может понадобиться реализация собственного View?
    - [Q41a](#q41a) Какие способы создания Custom View вы знаете? 
    - [Q42a](#q42a) Иерархия View в Android
@@ -67,7 +67,7 @@
    - [Q47a](#q47a) Обновление `View`
    - [Q48a](#q48a) Атрибуты для Custom View
  
-   - [Библиотеки загрузки приложений](#библиотеки-загрузки-приложений)
+     ## Библиотеки загрузки приложений
   
    - [Q49a](#q49a) Coil
    - [Q50a](#q50a) Glide
